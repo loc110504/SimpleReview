@@ -9,8 +9,8 @@ from urllib import error, request
 class OllamaClient:
     name = "ollama"
 
-    def __init__(self) -> None:
-        self.base_url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434").rstrip("/")
+    def __init__(self, *, base_url: str | None = None) -> None:
+        self.base_url = (base_url or os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")).rstrip("/")
 
     def generate_text(self, prompt: str, *, model: str, temperature: float = 0.2) -> str:
         payload = {

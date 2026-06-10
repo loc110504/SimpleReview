@@ -13,9 +13,17 @@ from .openai_client import OpenAIClient
 
 
 class ModelRouter:
-    def __init__(self, *, cache_dir: Path, routes: dict[str, Any], log_dir: Path) -> None:
+    def __init__(
+        self,
+        *,
+        cache_dir: Path,
+        routes: dict[str, Any],
+        providers: dict[str, Any] | None = None,
+        log_dir: Path,
+    ) -> None:
         self.cache = CacheStore(cache_dir / "llm")
         self.routes = routes
+        self.providers = providers or {}
         self.log_dir = log_dir
         self.log_dir.mkdir(parents=True, exist_ok=True)
         self._providers: dict[str, Any] = {"heuristic": HeuristicLLMClient()}
@@ -30,7 +38,8 @@ class ModelRouter:
             self._providers[name] = GeminiClient()
             return self._providers[name]
         if name == "ollama":
-            self._providers[name] = OllamaClient()
+            base_url = self.providers.get("ollama", {}).get("base_url")
+            self._providers[name] = OllamaClient(base_url=base_url)
             return self._providers[name]
         raise KeyError(f"Unsupported provider route: {name}")
 
@@ -51,7 +60,10 @@ class ModelRouter:
             ("ollama", "write"): "OLLAMA_MODEL_WRITE",
             ("ollama", "fast"): "OLLAMA_MODEL_FAST",
         }.get((provider_name, model_kind))
-        return provider_name, os.getenv(env_var or "", route_value)
+        configured_default = self.providers.get(provider_name, {}).get(f"{model_kind}_model")
+        if env_var:
+            return provider_name, os.getenv(env_var, configured_default or route_value)
+        return provider_name, configured_default or route_value
 
     def generate_json(
         self,

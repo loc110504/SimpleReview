@@ -20,7 +20,7 @@ routes:
 
 providers:
   ollama:
-    base_url_env: OLLAMA_BASE_URL
-    extract_model_env: OLLAMA_MODEL_EXTRACT
-    write_model_env: OLLAMA_MODEL_WRITE
-    fast_model_env: OLLAMA_MODEL_FAST
+    base_url: http://localhost:11434
+    extract_model: qwen3.6:35b-a3b
+    write_model: qwen3.6:35b-a3b
+    fast_model: gemma4:latest

@@ -24,6 +24,7 @@ class Stage1Workflow:
         self.router = ModelRouter(
             cache_dir=config.cache_dir,
             routes=config.models.get("routes", {}),
+            providers=config.models.get("providers", {}),
             log_dir=config.output_dir / "logs" / "llm",
         )
         self.ingestion = IngestionAgent()
