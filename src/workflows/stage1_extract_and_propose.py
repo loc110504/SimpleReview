@@ -43,9 +43,30 @@ class Stage1Workflow:
         paper_dir = ensure_dir(outputs / "papers")
         evidence_dir = ensure_dir(outputs / "evidence")
         taxonomy_dir = ensure_dir(outputs / "taxonomy")
+        paper_manifest_path = paper_dir / "manifest.json"
+        paper_manifest = read_json(paper_manifest_path) if paper_manifest_path.exists() else {}
+        updated_paper_manifest: dict[str, dict[str, str]] = {}
         state.papers = self.ingestion.run(literature_dir=state.literature_dir, output_dir=outputs)
         failed_rows: list[dict[str, str]] = []
         for record in state.papers:
+            extraction_path = paper_dir / f"{record.paper_id}.extraction.json"
+            cached = paper_manifest.get(record.paper_id, {})
+            if (
+                cached.get("file_hash") == record.file_hash
+                and extraction_path.exists()
+            ):
+                try:
+                    extraction = PaperExtraction.model_validate(read_json(extraction_path))
+                    state.extractions[record.paper_id] = extraction
+                    updated_paper_manifest[record.paper_id] = {
+                        "filename": record.filename,
+                        "file_hash": record.file_hash,
+                        "extraction_path": str(extraction_path),
+                        "status": "processed",
+                    }
+                    continue
+                except Exception:
+                    pass
             text = record.text_path.read_text(encoding="utf-8") if record.text_path else ""
             metadata = self.metadata_agent.extract(filename=record.filename, text=text)
             bibtex_key = self._match_bibtex_key(metadata, bib_lookup) or record.paper_id
@@ -61,9 +82,22 @@ class Stage1Workflow:
             verification = self.verifier.verify(extraction)
             if verification.status == "needs_retry":
                 failed_rows.append({"paper_id": record.paper_id, "filename": record.filename, "reason": "; ".join(verification.warnings)})
+                updated_paper_manifest[record.paper_id] = {
+                    "filename": record.filename,
+                    "file_hash": record.file_hash,
+                    "extraction_path": str(extraction_path),
+                    "status": "failed",
+                }
                 continue
             state.extractions[record.paper_id] = extraction
-            write_json(paper_dir / f"{record.paper_id}.extraction.json", extraction.model_dump(mode="json"))
+            write_json(extraction_path, extraction.model_dump(mode="json"))
+            updated_paper_manifest[record.paper_id] = {
+                "filename": record.filename,
+                "file_hash": record.file_hash,
+                "extraction_path": str(extraction_path),
+                "status": "processed",
+            }
+        write_json(paper_manifest_path, updated_paper_manifest)
         self._write_failed_csv(failed_rows, evidence_dir / "failed_papers.csv")
         evidence_matrix_path = evidence_dir / "evidence_matrix.csv"
         self._write_evidence_matrix(state.extractions, evidence_matrix_path)

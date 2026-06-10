@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import re
+from hashlib import sha256
 from pathlib import Path
 from typing import Any
 
@@ -24,6 +25,10 @@ def write_json(path: Path, payload: Any) -> None:
 
 def read_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def stable_text_hash(value: str) -> str:
+    return sha256(value.encode("utf-8")).hexdigest()
 
 
 def wrap_latex_text(value: str) -> str:

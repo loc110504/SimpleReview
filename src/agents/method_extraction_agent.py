@@ -17,6 +17,7 @@ from .common import (
 from ..llm.router import ModelRouter
 from ..schemas import PaperExtraction
 from ..schemas.json_schemas import PAPER_EXTRACTION_SCHEMA
+from ..utils import stable_text_hash
 
 
 class MethodExtractionAgent:
@@ -114,7 +115,7 @@ class MethodExtractionAgent:
                 prompt=prompt,
                 schema=PAPER_EXTRACTION_SCHEMA,
                 schema_version="paper_extraction_v1",
-                input_hash=f"{paper_id}:{hash(text[:20000])}",
+                input_hash=f"{paper_id}:{stable_text_hash(text[:20000])}",
             )
             payload.setdefault("paper_id", paper_id)
             payload.setdefault("filename", filename)
