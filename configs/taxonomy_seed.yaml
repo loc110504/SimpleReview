@@ -1,0 +1,48 @@
+families:
+  scribble_to_dense_pseudo_labeling:
+    definition: "Methods that transform sparse scribble pixels into dense or denser supervisory masks."
+    signals:
+      - pseudo_label_generation
+      - label_propagation
+      - self_training
+      - co_training
+  consistency_regularization:
+    definition: "Methods that constrain predictions, features, or tasks to remain stable while sparse scribbles anchor labeled pixels."
+    signals:
+      - image_consistency
+      - feature_consistency
+      - teacher_student
+      - task_consistency
+  reliability_uncertainty_noise_aware:
+    definition: "Methods whose main contribution is selecting, weighting, correcting, or denoising unreliable supervision induced by sparse scribbles."
+    signals:
+      - uncertainty_estimation
+      - confidence_filtering
+      - dynamic_reweighting
+      - scribble_noise_modeling
+  representation_learning:
+    definition: "Methods that improve feature separability using sparse scribble cues, contrastive objectives, prototypes, or memory banks."
+    signals:
+      - contrastive_learning
+      - prototype_learning
+      - feature_memory
+  structure_boundary_anatomy_prior:
+    definition: "Methods that inject boundary, shape, topology, graph, CRF, geodesic, or anatomical priors."
+    signals:
+      - boundary_prior
+      - shape_prior
+      - topology_prior
+      - graph_crf_prior
+  generative_adversarial_foundation_assisted:
+    definition: "Methods that rely on adversarial learning, generative modeling, or foundation models to strengthen supervision from scribbles."
+    signals:
+      - adversarial_learning
+      - generative_modeling
+      - foundation_model
+
+scribble_protocols:
+  - manual_scribbles
+  - synthetic_scribbles
+  - skeleton_or_centerline
+  - sparse_random_lines
+  - unknown

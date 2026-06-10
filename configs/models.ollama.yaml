@@ -1,0 +1,26 @@
+routes:
+  metadata:
+    primary: heuristic
+    verifier: heuristic
+  method_extraction:
+    primary: ollama.extract
+    verifier: heuristic
+  benchmark_extraction:
+    primary: heuristic
+    verifier: heuristic
+  taxonomy_proposal:
+    primary: heuristic
+    critic: heuristic
+  drafting:
+    primary: ollama.write
+    critic: heuristic
+  refinement:
+    primary: heuristic
+    critic: heuristic
+
+providers:
+  ollama:
+    base_url_env: OLLAMA_BASE_URL
+    extract_model_env: OLLAMA_MODEL_EXTRACT
+    write_model_env: OLLAMA_MODEL_WRITE
+    fast_model_env: OLLAMA_MODEL_FAST

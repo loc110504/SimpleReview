@@ -1,0 +1,10 @@
+style:
+  language: en
+  tone: academic
+  citation_density_min: 1
+  max_paragraph_words: 220
+  target_word_count_default: 6000
+  require_definition_first: true
+  require_limitation_transition: true
+  require_benchmark_section: true
+  require_discussion_section: true

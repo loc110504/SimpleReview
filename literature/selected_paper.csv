@@ -1,0 +1,61 @@
+#,Year,Title,Venue,Dataset,category,Link
+1,2018,Learning to Segment Medical Images with Scribble-Supervision Alone,MICCAIW,"ACDC, NCI-ISBI 2023",Pseudo-labeling (Self-training),x
+2,2019,Scribble-Based Hierarchical Weakly Supervised Learning for Brain Tumor Segmentation,MICCAI,BraTS2017,Hybrid (pseudo-labeling+ consistency),x
+3,2020,Scribble2Label: Scribble-Supervised Cell Segmentation via Self-Generating Pseudo-Labels with Consistency,MICCAI,"MoNuSeg; DSB-BF; DSB-Fluo; DSB-Histo; EM
+",Pseudo-labeling (Self-training),x
+5,2021,Learning to Segment From Scribbles Using Multi-Scale Adversarial Attention Gates,TMI,"ACDC; LVSC; CHAOS-T1; CHAOS-T2; PPSS
+","Adversarial methods",x
+6,2022,CycleMix: A Holistic Strategy for Medical Image Segmentation from Scribble Supervision,CVPR,"ACDC; MSCMRseg","Consistency regularization (combined consistency)
+",x
+7,2022,Scribble-Supervised Cell Segmentation Using Multiscale Contrastive Regularization,ISBI,,,
+8,2022,Scribble-Supervised Medical Image Segmentation via Dual-Branch Network and Dynamically Mixed Pseudo Labels Supervision,MICCAI,ACDC,Pseudo-labeling (Self-training),x
+9,2022,Scribble2D5: Weakly-Supervised Volumetric Image Segmentation via Scribble Annotations,MICCAI,"ACDC, CHAOS",Pseudo-labeling (Self-training),x
+10,2022,"ShapePU: A New PU Learning Framework Regularized by Global Consistency
+for Scribble Supervised Cardiac Segmentation",MICCAI,,,x
+11,2022,Weakly Supervised Segmentation of COVID19 Infection with Scribble Annotation on CT Images,Pattern Recognition,,,x
+12,2022,Segmentation only uses sparse annotations: Unified weakly and semi-supervised learning in medical images,MedIA,,,
+13,2023,Weakly Supervised Medical Image Segmentation via Superpixel-Guided Scribble Walking and Class-Wise Contrastive Regularization,MICCAI,,,
+14,2023,"S^2ME: Spatial-Spectral Mutual Teaching and Ensemble Learning for Scribble-Supervised 
+Polyp Segmentation",MICCAI,,,
+15,2023,"Scribble-based 3D Multiple Abdominal Organ Segmentation via Triple-branch Multi-dilated 
+Network with Pixel-  and  Class-wise Consistency",MICCAI,,,
+16,2023,Weakly supervised segmentation of uterus by scribble labeling on endometrial cancer MR images,Computers in Biology and Medicine,,,
+17,2023,ScribbleVC: Scribble-supervised Medical Image Segmentation with Vision-Class Embedding,ACMMM,,,
+18,2023,Segment Anything Model-guided Collaborative Learning Network for Scribble-supervised Polyp Segmentation,,,,
+19,2024,ScribFormer: Transformer Makes CNN Work Better for Scribble-Based Medical Image Segmentation,IEEE TMI,,,
+20,2024,Scribble-Based Medical Image Segmentation via Shape Perturbation Consistency and Boundary Enhancement Constraint,ISBI,,,
+21,2024,ModelMix: A New Model-Mixup Strategy to Minimize Vicinal Risk Across Tasks for Few-Scribble Based Cardiac Segmentation,MICCAI,,,
+22,2024,A Bayesian Approach to Weakly-Supervised Laparoscopic Image Segmentation,MICCAI,,,
+23,2024,ScribSD+: Scribble-supervised medical image segmentation based on simultaneous multi-scale knowledge distillation and class-wise contrastive regularization,Computerized Medical Imaging and Graphics,,,
+24,2024,DMSPS: Dynamically mixed soft pseudo-label supervision for scribble-supervised medical image segmentation,MedIA,,,
+25,2024,Non-iterative scribble-supervised learning with pacing pseudo-masks for medical image segmentation,ESWA,,,
+26,2025,Addressing Inconsistent Labeling With Cross Image Matching for Scribble-Based Medical Image Segmentation,IEEE TIP,,,
+27,2025,FDDSeg: Unleashing the Power of Scribble Annotation for Cardiac MRI Images Through Feature Decomposition Distillation,IEEE JBHI,,,
+28,2025,Superpixel-Guided Graph-Attention Boundary GAN for Adaptive Feature Refinement in Scribble-Supervised Medical Image Segmentation,IEEE Acess,,,
+29,2025,Volumetric medical image segmentation via scribble annotations and shape priors,Machine Vision and Apps,,,
+30,2025,EFFDNet: A Scribble-Supervised Medical Image Segmentation Method with Enhanced Foreground Feature Discrimination,MICCAI,,,
+31,2025,HELPNet: Hierarchical perturbations consistency and entropy-guided ensemble for scribble supervised medical image segmentation,MedIA,,,
+32,2025,AttenScribble: Attention-enhanced scribble supervision for medical image segmentation,Journal of Visual Communication and Image Representation,,,
+33,2025,Scribble-supervised medical image segmentation based on dynamically generated pseudo labels via multi-scale superpixels,BSPC,,,
+34,2025,Pick and mix reliable pseudo labels for scribble-supervised medical image segmentation,Neurocomputing,,,
+35,2025,QMaxViT-Unet+: A query-based MaxViT-Unet with edge enhancement for scribble-supervised segmentation of medical images,Computers in Biology and Medicine,,,
+36,2025,S2L-CM: Scribble-supervised nuclei segmentation in histopathology images using contrastive regularization and pixel-level multiple instance learning,Computers in Biology and Medicine,,,
+37,2025,"Weakly supervised segmentation of retinal layers on OCT images with AMD using uncertainty 
+prototype and boundary regression",MedIA,,,
+38,2025,ScribbleVS: Scribble-Supervised Medical Image Segmentation via Dynamic Competitive Pseudo Label Selection,,,,
+39,2026,Scribble-Supervised Medical Image Segmentation With Dynamic Teacher Switching and Hierarchical Consistency,ISBI,,,
+40,2026,From Few to More: Scribble-Based Medical Image Segmentation via Masked Context Modeling and Continuous Pseudo Labels,IEEE JBHI,,,
+41,2025,Weak-Mamba-UNet: Visual Mamba Makes CNN and ViT Work Better for Scribble-based Medical Image Segmentation,IEE TBE,,,
+42,2026,SPC-Seg: A Sam-Guided Progressive Consistency Framework with Anatomical Priors for Scribble-Supervised Segmentation,ICASSP,,,
+43,2026,"
+Scribble-Supervised Multi-Organ Segmentation via Epistemic-Driven Hardness-Adaptive Focusing",IEEE TMI,,,
+44,2026,Weakly Supervised Medical Image Segmentation with Feature Reference Enhanced Prompt,ICASSP,,,
+45,2026,TABNet: A Triplet Augmentation Self-recovery framework with Boundary-aware Pseudo-labels for scribble-based medical image segmentation,Image and Vision Computing,,,
+46,2026,Masked image modeling-guided cross-image prototype learning for scribble-supervised medical image segmentation,ESWA,,,
+47,2026,Efficient 3D medical image segmentation via Single-Slice Scribble Annotations: A near unsupervised approach,BSPC,"Hướng mới, chỉ scribble trên 1 slice",,
+48,2026,Scribble consistency match and pixel-level prototype contrastive calibration for weakly supervised medical segmentation,Neurocomputing,,,
+49,2026,ZScribbleSeg: A comprehensive segmentation framework with modeling of efficient annotation and maximization of scribble supervision,MedIA,,,
+50,2026,PS-Seg: Learning from partial scribbles for 3D multiple abdominal organ segmentation,Neurocomputing,,,
+51,2025,GloW-VSNet: A scribble-based weakly supervised framework for global-view vitiligo lesion segmentation,MedIA,,,
+52,2026,MambaEviScrib: Mamba and evidence-guided consistency enhance CNN robustness for scribble-based weakly supervised ultrasound image segmentation,Infomation Fusion,,,
+53,2026,Visual Mamba-CNN for scribble-based segmentation in weakly supervised learning for photoacoustic tomography,ESWA,,,

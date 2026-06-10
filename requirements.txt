@@ -1,0 +1,14 @@
+pydantic>=2.7
+python-dotenv>=1.0
+pymupdf>=1.24
+pandas>=2.2
+numpy>=1.26
+pyyaml>=6.0
+bibtexparser>=1.4
+rich>=13.7
+tenacity>=8.2
+orjson>=3.10
+openai>=2.0.0
+google-genai>=1.0.0
+rapidfuzz>=3.6
+latexcodec>=2.0

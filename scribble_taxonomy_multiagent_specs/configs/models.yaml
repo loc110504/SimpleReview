@@ -1,0 +1,37 @@
+routes:
+  metadata:
+    primary: openai.extract
+    verifier: gemini.fast
+  method_extraction:
+    primary: openai.extract
+    verifier: gemini.extract
+  benchmark_extraction:
+    primary: openai.extract
+    verifier: gemini.fast
+  taxonomy_signal:
+    primary: openai.extract
+    verifier: gemini.extract
+  taxonomy_proposal:
+    primary: openai.write
+    critic: gemini.extract
+  drafting:
+    primary: openai.write
+    critic: gemini.extract
+  refinement:
+    primary: openai.write
+    critic: gemini.fast
+
+providers:
+  openai:
+    extract: ${OPENAI_MODEL_EXTRACT}
+    write: ${OPENAI_MODEL_WRITE}
+    fast: ${OPENAI_MODEL_FAST}
+  gemini:
+    extract: ${GEMINI_MODEL_EXTRACT}
+    fast: ${GEMINI_MODEL_FAST}
+
+runtime:
+  max_paper_chunk_tokens: ${MAX_PAPER_CHUNK_TOKENS}
+  max_repair_retries: ${MAX_REPAIR_RETRIES}
+  cache_dir: ${CACHE_DIR}
+  output_dir: ${OUTPUT_DIR}

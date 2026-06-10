@@ -1,0 +1,27 @@
+language: english
+style: simple_academic
+level: IELTS_7_5_to_8_0
+avoid:
+  - excessive_paper_by_paper_listing
+  - unsupported_state_of_the_art_claims
+  - citation_dumping
+  - vague_words_like_novel_or_robust_without_evidence
+prefer:
+  - definition_first_sections
+  - development_narrative
+  - limitation_transition_logic
+  - branch_boundary_explanations
+  - concise_paragraphs
+paragraph_limits:
+  target_words: 120-180
+  max_words: 220
+citation_policy:
+  min_citations_per_method_claim_paragraph: 1
+  max_citations_per_sentence: 4
+latex:
+  citation_command: cite
+  table_packages:
+    - booktabs
+    - multirow
+    - graphicx
+    - adjustbox

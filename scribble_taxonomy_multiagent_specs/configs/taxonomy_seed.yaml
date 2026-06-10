@@ -1,0 +1,67 @@
+# Seed taxonomy prior for scribble-supervised medical image segmentation.
+# Stage 1 must infer the final taxonomy from evidence. This file is not a fixed taxonomy.
+
+primary_mechanisms:
+  scribble_to_dense_pseudo_labeling:
+    definition: "Methods that transform sparse scribble pixels into dense or denser supervisory masks."
+    possible_subbranches:
+      - graph_crf_random_walk_label_propagation
+      - superpixel_region_propagation
+      - self_training_pseudo_mask_refinement
+      - co_training_mutual_pseudo_labeling
+      - foundation_model_assisted_refinement
+
+  consistency_regularization:
+    definition: "Methods that constrain predictions/features/tasks to remain stable under perturbations while scribbles anchor sparse pixels."
+    possible_subbranches:
+      - image_consistency
+      - feature_consistency
+      - network_teacher_student_consistency
+      - task_level_consistency
+      - combined_consistency
+
+  reliability_uncertainty_noise_aware:
+    definition: "Methods whose main contribution is selecting, weighting, correcting, or denoising unreliable supervision induced by sparse scribbles."
+    possible_subbranches:
+      - confidence_entropy_selection
+      - uncertainty_estimation
+      - error_correction_networks
+      - curriculum_dynamic_reweighting
+      - scribble_noise_modeling
+
+  representation_contrastive_prototype:
+    definition: "Methods that improve feature separability using sparse scribble cues, contrastive objectives, prototypes, or memory banks."
+    possible_subbranches:
+      - pixel_level_contrastive
+      - region_level_contrastive
+      - prototype_memory_bank
+      - cross_view_feature_alignment
+
+  structure_boundary_anatomical_prior:
+    definition: "Methods that inject structural, boundary, shape, topology, or anatomical priors to compensate for missing boundary labels."
+    possible_subbranches:
+      - boundary_signed_distance
+      - shape_size_topology
+      - anatomical_relation
+      - graph_geodesic_prior
+
+  generative_adversarial_foundation:
+    definition: "Methods that use discriminators, generative models, or foundation models to impose realistic masks or construct dense supervision."
+    possible_subbranches:
+      - adversarial_mask_realism
+      - generative_augmentation
+      - sam_or_foundation_model_assistance
+      - diffusion_prior
+
+cross_tags:
+  - hybrid
+  - transformer_architecture
+  - cnn_architecture
+  - manual_scribbles
+  - synthetic_scribbles
+  - two_dimensional
+  - three_dimensional
+  - boundary_focused
+  - region_focused
+  - computationally_expensive
+  - code_available
